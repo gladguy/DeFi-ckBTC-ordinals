@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "canisters": {
+    "basic_bitcoin": {
+      "main": "src/basic_bitcoin/src/Main.mo",
+      "type": "motoko",
+      "dependencies": [
+        "ckbtc_ledger"
+      ]      
+    },
+    "BitcoinBunny": {
+      "frontend": {
+        "entrypoint": "BitcoinBunny/src/index.html"
+      },
+      "source": [
+        "BitcoinBunny/assets",
+        "dist/BitcoinBunny/"
+      ],
+      "type": "assets"
+    },          
+    "ckbtc_ledger" : {
+      "type" : "custom",
+      "candid" : "icrc1.public.did",
+      "wasm" : "icrc1.wasm",
+      "remote": {
+        "candid": "icrc1.public.did",
+        "id": {
+          "ic" : "mxzaz-hqaaa-aaaar-qaada-cai"
+        }
+      }
+    }    
+  },
+  "defaults": {
+    "bitcoin": {
+      "enabled": true,
+      "nodes": [
+        "127.0.0.1:18444"
+      ],
+      "log_level": "info"
+    },
+    "build": {
+      "packtool": "",
+      "args": ""
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4943"
+    }
+  }
+}
