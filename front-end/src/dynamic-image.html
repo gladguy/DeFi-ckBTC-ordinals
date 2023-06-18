@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.picture-shadow
+{
+	border-radius: 290486px;
+	background-image: radial-gradient(#000 0%, rgba(0, 0, 0, 0) 70%);
+	position: absolute;
+	top: 10%;
+}
+canvas{
+  border: 1px solid red;
+}
+.picture-image 
+{
+	border-radius: 290486px;
+	position: absolute;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script language="javascript">
+
+window.onload=function(){
+
+    $("#showlatlong").on("click", function () {
+      var canvas = document.getElementById("bunnyisland");
+      var context = canvas.getContext("2d");
+      var imageObj = new Image(500,500);
+      imageObj.onload = function(){
+          context.drawImage(imageObj, 0, 0,500,500);
+          context.font = "bold 25px Bebas Neue";
+          var latitudelongitude= document.getElementById("latlong").value;  
+          text = latitudelongitude;   
+          context.fillStyle = '#d55aa1';
+       
+          var pos = latitudelongitude.length*10;
+          pos = pos+100;
+          console.log(pos);
+
+          if(pos > 100) pos = 100;
+
+         
+          context.fillText(latitudelongitude, 165, 485);
+
+          latitudelongitude = document.getElementById("latlong").value;  
+          context.font = "14pt poppins";
+          latitudelongitude = "icplatlong.com/" + latitudelongitude;   
+          context.fillStyle = 'black';
+
+          //context.fillText(latitudelongitude, 400, 350);
+
+      };
+      imageObj.src = "area-5.png"; 
+  });  
+  
+  $("#bunny").on("click", function () {
+      var canvas = document.getElementById("bunnyisland");
+      let img = canvas.toDataURL();
+      console.log(img);
+      document.getElementById("bunny").src= img;	
+    });        
+};  
+
+</script>
+</head>
+<body>
+
+<hr>
+
+<img src="area-5.png" height="500" width="500">
+<hr>
+Enter Latitude & Longitude 
+<input type="text" name="latlong" id="latlong" value="(332,563)">
+<button id="showlatlong">Convert to Image</button>
+
+<div id="show_img_here"></div>
+<canvas id="bunnyisland" height="500" width="500"></canvas>
+
+<br><br><br>
+<img with="200" height="200" src="area-2.png" id="bunny">
+
+</body>
+</html>

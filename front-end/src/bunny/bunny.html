@@ -1,0 +1,88 @@
+<script src="bunnyparser.js?sss"></script>
+
+<input type="submit" value="Mint a Dfinty Cat" onclick="gen(0);">
+<input type="submit" value="Mint Cute Cats" onclick="gen(1);">
+<input type="hidden" id="catid" value="0x0000b83cd"> 
+<p><span id="cat"><span></p>
+<img with=200 height=200 src="" id="imageid">
+<br>
+Principal :<input type="text" id="principal" value=""> 
+<input type="submit" value="Adopt it !" onclick="alert('Thank you for your interests !');">
+
+<script language="javascript">
+
+/*
+0 .
+1 @
+3 o
+4 ^
+5 ~
+*/
+
+function generateMoonCatImage(catId, size){
+  size = size || 10;
+  var data = mooncatparser(catId);
+  var canvas = document.createElement("canvas");
+  canvas.width = size * data.length;
+  canvas.height = size * data[1].length;
+  var ctx = canvas.getContext("2d");
+
+  //https://rarity.studio/cats.html
+
+  for(var i = 0; i < data.length; i++){
+    for(var j = 0; j < data[i].length; j++){
+      var color = data[i][j];
+      if(color){
+        ctx.fillStyle = color;
+        ctx.fillRect(i * size, j * size, size, size);
+      }
+    }
+  }
+  return canvas.toDataURL();
+}
+
+let img = generateMoonCatImage("0x00f9e605e3",200);
+
+document.getElementById("imageid").src= img;
+
+function decimalToHexString(number)
+{
+  if (number < 0)
+  {
+    number = 0xFFFFFFFF + number + 1;
+  }
+
+  return number.toString(16).toUpperCase();
+}
+function random(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
+function gen(genesis)
+{
+	const random_hex_color_code = () => {
+	  let n = (Math.random() * 0xaaaaa * 12345678).toString(16);
+	  var rand = random(255);
+	  
+	  
+	  if(genesis)
+	  {
+		return '0x' + decimalToHexString(rand) + n.slice(0, 8);
+	  }
+	 else
+	 {
+		return '0x00' + decimalToHexString(rand) + n.slice(0, 6);
+	 }
+	};
+
+    document.getElementById("catid").value = random_hex_color_code(); 
+	
+	var span = document.getElementById("cat");
+	span.textContent = document.getElementById("catid").value;
+	
+	var catid = document.getElementById("catid").value;
+	let img = generateMoonCatImage(catid,200);
+	document.getElementById("imageid").src= img;	
+	
+}
+
+</script>

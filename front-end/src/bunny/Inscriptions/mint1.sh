@@ -1,0 +1,1 @@
+ord wallet inscribe ./1.html

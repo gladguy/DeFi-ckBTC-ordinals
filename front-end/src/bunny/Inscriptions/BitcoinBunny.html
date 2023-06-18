@@ -1,0 +1,301 @@
+<html>
+	<style>
+		.button-4 {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgb(27 31 35 / 4%) 0 1px 0, rgb(255 255 255 / 25%) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+	</style>
+	<body><center>
+	<input type="text" id="bunnyid" value="bc10102c2efa1" class="button-4"> <input class="button-4" type="button" value="Get Bunny" id="getBunny" onClick="getBunny();"><br><br>
+
+	<img with=200 height=200 src="" id="imageid">
+		<div id="mainDiv"></div>
+	</center></body></html>
+
+<script language="javascript">
+
+
+var _border = "groove";
+var animationSpeed = 400;
+var OrdinalID = 0;
+var gender = "M";
+var breed = "Silver Fox"; 
+
+ 
+var loop = true;
+var root = this;
+var prev_bitcoinlandFlag = root.bitcoinlandFlag;
+var genesis_design = [];
+var designs = ["00000000000000000000110.00000000000115000001510.00000000001445100014311.00000000014444100143151.00001111144624101431441.00015555144444114314410.00155111444444441144100.01411445444444444441000.14411555444444444410000.11115551111444411100000.00155511001444441000000.01451100014444441000000.01110000144444441000000.00000000144444111100000.00000001444441441410000.00000001444441444141000.00000000144444444141000.00000000144444444144100.00000000014444444414100.00000000014441111414510.00000001141111001441110.00000014441000000144100.00000014441000000014510.00000001110000000001110","000000000000000000000000.000000000000000000000000.000000000000000000000000.000000000000000000000000.000000000000000000000000.000000000000000011100000.000000000000000114410111.000111000111101444441551.011455111444414441441441.145555544444414414114441.011111444615441444444111.000000114444561444444441.000000114444561444444441.011111444615441444444111.145555544444414414114441.011455111444414441441441.000111000111101444441551.000000000000000114410111.000000000000000011100000.000000000000000000000000.000000000000000000000000.000000000000000000000000.000000000000000000000000.000000000000000000000000","000000000015100000000000.000000001133310000000000.000000013333331000000000.000000013316331011100000.000011133333331133310011.001133333333333333331131.013555333333333333333311.135553331133333333333310.155531110013333333111111.111110000001333331333131.000000000001133331333331.000000000000133333333331.000000000000133333333331.000000000000133333333331.000000000000133333333331.000000000000013333333331.000000000000001333333331.000000000000000133333310.000000000000000011111110.000000000000000000001331.000000000000000000013331.000000000000000000013311.000000000000000000001110.000000000000000000000000","00000000000000111000.00000000000111131100.00000000001333334410.00000000013344444431.00000000133441444431.00000000133414444431.00000001334414444431.00000001344414444431.00000001344431111431.00000001344433333131.00000001344444433331.01110001334444444431.01411100134444411131.01455410133444133331.00145541012344444431.00014554113444444431.01111455444444144431.14554114444444414431.01455551444614414410.00111111144444441100.00000000014444441000.00000000014444441000.00000000001114510000.00000000000011100000","00000000000001111000.00000000000111441100.00000000001444444410.00000000014444444411.00000000144441444441.00000000144414444441.00000001444414444441.00000001444414444441.00000001444411444441.00000001444441111115.00000001444444444466.01110001144444444466.01411100144444411111.01455410114444144441.00145541011444444441.00014554144444444441.01111455444441144441.14555114444444114441.01455551444444414415.00111111144514441100.00000000014444441000.00000000014444441000.00000000001114510000.00000000000011100000","000000000015500000000000.000000001166610000000000.000000016666661000000000.000000016615661011100000.000011166666661166610011.001166666666666666661161.016555666666666666666611.165556661166666666666610.155561110016666666111111.111110000001666661666161.000000000001166661666661.000000000000166666666661.000000000000166666666661.000000000000166666666661.000000000000166666666661.000000000000016666666661.000000000000001666666661.000000000000000166666610.000000000000000011111110.000000000000000000001661.000000000000000000016661.000000000000000000016611.000000000000000000001110.000000000000000000000000","000000000015500000000000.000000001144410000000000.000000014444431000000000.000000014441431011100000.000011144444441133310011.001144554444444334441141.014555443344444444444411.145543331133444444333410.155331110013344443111111.111110000001344441444141.000000000001134441444441.000000000000134444444441.000000000000134444444441.000000000000133444444441.000000000000133344444441.000000000000013334443341.000000000000001333333331.000000000000000133333310.000000000000000011111110.000000000000000000001441.000000000000000000014431.000000000000000000013311.000000000000000000001110.000000000000000000000000","000000000012100000000066.000000001155510000000000.000000015555551000000000.000000015561551011100000.000011155555551155510011.001155555555555555551151.015555555555565555655511.155555551155555565555510.155551110015555555111111.111110000001565551555151.000000000001155551565551.000000000000155555555551.000000000000165655565551.000000000000155555555651.000000000000155555555551.000000000000015555555551.000000000000001556556551.000000000000000155555510.000000000000000011111110.000000000000000000001551.000000000000000000015651.000000000000000000015511.000000000000000000001110.000000000000000000000000"];
+
+var bc = ["bc10005202f5b","bc10102c2efa1","bc10001c2efa1","bc10003f3fa3b","bc100020eb0df","bc1000085871b","bc1000685871b","bc1000464108f","bc100004289b2","bc10001450a3c","bc10002f3fa3b","bc10105c2efa1","bc1000564108f","bc10006450a3c","bc10002202f5b","bc10001129452","bc100014289b2","bc10000450a3c","bc10005f3fa3b","bc1000264108f","bc100064289b2","bc100062a1a05","bc1000664108f","bc10002129452","bc1000364108f","bc100022a1a05","bc1000464144","bc10004f3fa3b","bc10003202f5b","bc100032a1a05","bc10104c2efa1","bc10000f1e3c5","bc1000064108f","bc100012a1a05","bc10005450a3c","bc10106c2efa1","bc1000585871b","bc10002ec67f8","bc10000ec67f8","bc10003c2efa1","bc10004c2efa1","bc10003129452","bc100034289b2","bc100044289b2","bc100050eb0df","bc10100c2efa1","bc10001f1e3c5","bc100002a1a05","bc1000264144","bc10103c2efa1","bc1000385871b","bc10004202f5b","bc10004129452","bc100045d9a35","bc10002f1e3c5","bc10003450a3c","bc1000185871b","bc100052a1a05","bc1000664144","bc100010eb0df","bc10101c2efa1","bc1000064144","bc10002c2efa1","bc10005129452","bc10004450a3c","bc100035d9a35","bc10003f1e3c5","bc10006c2efa1","bc10006f1e3c5","bc10005f1e3c5","bc10004f1e3c5","bc100025d9a35","bc10001f3fa3b","bc100015d9a35","bc10006202f5b","bc10000129452","bc100000eb0df","bc100060eb0df","bc100042a1a05","bc10004ec67f8","bc10000f3fa3b","bc10001202f5b","bc1000564144","bc10003ec67f8","bc10006ec67f8","bc1000364144","bc100040eb0df","bc1000485871b","bc100054289b2","bc10001ec67f8","bc10005ec67f8","bc100055d9a35","bc100065d9a35","bc1000164144","bc1000285871b","bc100005d9a35","bc1000164108f","bc10006f3fa3b","bc10000c2efa1","bc100030eb0df"];
+
+
+function random(max) {
+		return Math.floor(Math.random() * max) + 1;
+}
+
+
+	var flagColor0	= bc[random(99)];
+
+	
+  function RGBToHSL(r, g, b) {
+	if (Array.isArray(r)) {
+	    g = r[1];
+	    b = r[2];
+	    r = r[0];
+	}
+	var r = r / 255;
+	var g = g / 255;
+	var b = b / 255;
+	var cMax = Math.max(r, g, b);
+	var cMin = Math.min(r, g, b);
+	var delta = cMax - cMin;
+	if (delta == 0) {
+	    var h = 0;
+	} else if (cMax == r) {
+	    var h = 60 * (((g - b) / delta) % 6);
+	} else if (cMax == g) {
+	    var h = 60 * ((b - r) / delta + 2);
+	} else if (cMax == b) {
+	    var h = 60 * ((r - g) / delta + 4);
+	}
+	if (h < 0) {
+	    h += 360;
+	}
+	var l = (cMax + cMin) / 2;
+
+	if (delta == 0) {
+	    var s = 0;
+	} else {
+	    var s = delta / (1 - Math.abs(2 * l - 1));
+	}
+
+	return [h, s, l]
+    }
+
+    function HSLToRGB(h, s, l) {
+	if (Array.isArray(h)) {
+	    s = h[1];
+	    l = h[2];
+	    h = h[0];
+	}
+	var c = (1 - Math.abs(2 * l - 1)) * s;
+	var x = c * (1 - Math.abs((h / 60) % 2 - 1));
+	var m = l - c / 2;
+	if (h >= 0 && h < 60) {
+	    var r = c,
+		g = x,
+		b = 0;
+	} else if (h >= 60 && h < 120) {
+	    var r = x,
+		g = c,
+		b = 0;
+	} else if (h >= 120 && h < 180) {
+	    var r = 0,
+		g = c,
+		b = x;
+	} else if (h >= 180 && h < 240) {
+	    var r = 0,
+		g = x,
+		b = c;
+	} else if (h >= 240 && h < 300) {
+	    var r = x,
+		g = 0,
+		b = c;
+	} else if (h >= 300 && h < 360) {
+	    var r = c,
+		g = 0,
+		b = x;
+	}
+	r = Math.round((r + m) * 255);
+	g = Math.round((g + m) * 255);
+	b = Math.round((b + m) * 255);
+	return [r, g, b];
+    }
+
+    function RGBToHex(arr) {
+	var r = arr[0],
+	    g = arr[1],
+	    b = arr[2];
+	return "#" + ("0" + r.toString(16)).slice(-2) + ("0" + g.toString(16)).slice(-2) + ("0" + b.toString(16)).slice(-2);
+    }
+
+    function derivePalette(r, g, b, invert) {
+	var hsl = RGBToHSL(r, g, b);
+
+	var h = hsl[0];
+	var s = hsl[1];
+	var l = hsl[2];
+
+	
+
+	var hx = h % 360;
+	var hy = (h + 320) % 360;
+
+	var c1 = HSLToRGB(hx, 1, 0.1);
+	if (invert) {
+	    var c4 = HSLToRGB(hx, 1, 0.2);
+	    var c5 = HSLToRGB(hx, 1, 0.45);
+	    var c2 = HSLToRGB(hx, 1, 0.7);
+	    var c3 = HSLToRGB(hy, 1, 0.8);
+	} else {
+	    var c2 = HSLToRGB(hx, 1, 0.2);
+	    var c3 = HSLToRGB(hx, 1, 0.45);
+	    var c4 = HSLToRGB(hx, 1, 0.7);
+	    var c5 = HSLToRGB(hy, 1, 0.8);
+
+	}
+
+
+	return [
+	    null,
+	    RGBToHex(c1),
+	    RGBToHex(c2),
+	    RGBToHex(c5),
+	    RGBToHex(c3),
+	    RGBToHex(c4)
+	];
+    }
+
+
+		
+    function hexToBytes(hex){
+	var result = []
+	for(var i = 0; i < hex.length; i+=2){
+	    result.push(parseInt(hex.slice(i, i+2),16));
+	}
+	return result;
+    }
+
+    var bitcoinlandFlag = function (bunnyid,_designId){
+	if(bunnyid.slice(0,3) == "bc1"){
+		
+	    bunnyid = bunnyid.slice(3);
+	}
+	var bytes = hexToBytes(bunnyid);
+
+	var genesis = bytes[0],
+	    k = bytes[1],
+	    r = bytes[2],
+	    g = bytes[3],
+	    b = bytes[4];
+
+ 	var size = size || 10;
+	var invert = k >= 128;
+
+	k = k % (designs.length-1);
+
+	if(k >= 8)
+	{
+		k = random(7);
+	}
+
+	 
+
+	var design = designs[k].split(".");
+	var colors;
+	if(genesis){
+		design = designs[k].split(".");
+
+	    if(k % 2 === 0 && invert || k % 2 === 1 && !invert){
+			colors = [null, "#555555", "#d3d3d3", "#ffffff", "#000000", "#ff9999"];
+	    }else{
+		colors = [null, "#555555", "#222222", "#111111", "#000000", "#ff9999"];
+	    }
+	}else{
+	    colors = derivePalette(r, g, b, invert);
+	}
+
+	return design.map(function(row){
+	    return row.split("").map(function(cell){
+		return colors[cell];
+	    })
+	})
+    }
+
+    bitcoinlandFlag.noConflict = function(){
+	root.bitcoinlandFlag = prev_bitcoinlandFlag;
+	return bitcoinlandFlag;
+    }
+
+    if( typeof exports !== 'undefined' ) {
+	if( typeof module !== 'undefined' && module.exports ) {
+	    exports = module.exports = bitcoinlandFlag;
+	}
+	exports.bitcoinlandFlag = bitcoinlandFlag;
+    } else {
+	root.bitcoinlandFlag = bitcoinlandFlag;
+    }
+
+function generateBitcoinLandFlag(bunnyid, size, _designId){
+  size = size || 10;
+  var data = bitcoinlandFlag(bunnyid,_designId);
+  var canvas = document.createElement("canvas");
+  canvas.width = size * data.length;
+  canvas.height = size * data[1].length;
+  var ctx = canvas.getContext("2d");
+
+  for(var i = 0; i < data.length; i++){
+    for(var j = 0; j < data[i].length; j++){
+      var color = data[i][j];
+      if(color){
+        ctx.fillStyle = color;
+        ctx.fillRect(i * size, j * size, size, size);
+      }
+    }
+  }
+  return canvas.toDataURL();
+}
+
+var designId_ = 1;
+designId_ = 1;
+
+
+let img1 = generateBitcoinLandFlag(flagColor0,200,designId_);
+document.getElementById("imageid").src= img1;
+
+function searchStringInArray (str, strArray) {
+    for (var j=0; j<strArray.length; j++) {
+        if (strArray[j].match(str)) return j;
+    }
+    return -1;
+}
+
+
+function getBunny()
+{
+	flagColor0 = document.getElementById("bunnyid").value;
+
+	var found  = searchStringInArray(flagColor0, bc);
+
+	if(found < 0)
+	{
+		flagColor0 = "bc10005202f5b";
+		document.getElementById("getBunny").value ="Try again, Bunny not found"
+	}
+
+	console.log(flagColor0);
+	console.log(found);
+
+	let img1 = generateBitcoinLandFlag(flagColor0,200,designId_);
+	document.getElementById("imageid").src= img1;
+}
+</script>

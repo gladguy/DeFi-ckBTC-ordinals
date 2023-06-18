@@ -1,0 +1,353 @@
+
+<html>
+	<head>
+		<style>
+			div.absolute {
+			width: 200px;
+			height: 500px;
+			border: 3px solid #1b1a1b;
+			border-style: inset dashed solid double;
+			background-color:rgb(255, 255, 255);
+			margin: auto;
+			padding: 20px;
+			}	
+			
+	 
+		</style>
+	</head>	
+<body>
+
+ 
+		<div id="mainDiv" class="absolute">
+
+		<p id="ordinalID"><b></b></p>
+
+		<p id="date01"><b>Jan 3, 2009: Genesis Block of first Bitcoin released.</b></p>
+		<p id="date02"><b>Oct 5, 2009 1 BTC = 0.001 USD</b></p>
+
+		<input type="hidden" id="bunnyid" value=""> 
+
+		<img with=200 height=200 src="" id="imageid"><hr>
+		<p id="s"><b>"I change everyday"</b></p>
+		<a id="link" target="_" href="">BitcoinBunny.in</a><br>
+		<div ><b><p id="xNy"></p></b></div>
+ 		</div>
+ </body>
+
+
+</html>
+
+
+<script language="javascript">
+
+var birthDay = new Date(2023, 1, 15, 15, 15, 15, 15); 
+var days = timeSince(birthDay) ;
+var _border = "inset";
+var animationSpeed = 400;
+var OrdinalID = 1;
+var gender = "F";
+var bitcoinDate0 = new Date(2009,00,03, 00, 00, 00, 00);
+var bitcoinDate1 = new Date(2009,09,05, 00, 00, 00, 00);  
+var breed = "Holland Lop";
+
+ 
+function daySince(date) {
+
+var seconds = Math.floor((new Date() - date) / 1000);
+
+var interval = seconds / 86400;
+interval = (seconds / 86400)%90;
+return Math.floor(interval);
+
+}
+
+function timeSince(date) {
+
+var seconds = Math.floor((new Date() - date) / 1000);
+
+var interval = seconds / 31536000;
+
+if (interval > 1) {
+  return Math.floor(interval) + " years";
+}
+interval = seconds / 2592000;
+if (interval > 1) {
+  return Math.floor(interval) + " months";
+}
+interval = seconds / 86400;
+if (interval > 1) {
+  return Math.floor(interval) + " days";
+}
+interval = seconds / 3600;
+if (interval > 1) {
+  return Math.floor(interval) + " hours";
+}
+interval = seconds / 60;
+if (interval > 1) {
+  return Math.floor(interval) + " minutes";
+}
+return Math.floor(seconds) + " seconds";
+}
+
+
+var changeColor0 = daySince(bitcoinDate0);
+var changeColor1 = daySince(bitcoinDate1);
+
+var _color0 =  changeColor1+"00"+changeColor0;
+
+var flagColor0	= "0x0092" + _color0;
+
+document.getElementById("ordinalID").innerHTML = "<b>Bitcoin Bunny ID : "+OrdinalID + "</b>";
+document.getElementById("link").href="http://www.bitcoinbunny.in/index.html?ord_id="+OrdinalID;
+document.getElementById("xNy").innerHTML = "Gender:"+gender+"<br>Breed: "+breed+"<br>Age: " + days;
+
+
+var color1 = "";
+var color2 = "";
+var color3 = "e6e6ff";
+var loop = true;
+var root = this;
+var prev_bitcoinlandFlag = root.bitcoinlandFlag;
+var genesis_design = [];
+var designs = ["000000000012100000000000.000000001155510000000000.000000015555551000000111.000000015521551011100151.000011155555551155511551.001155555555555555555551.015555551555555555555511.155555110155555555555510.155511000015555551111100.111100000001555515555111.000000000001155155555551.000000000000155555555551.000000000000155555555551.000000000000155555555551.000000000000155555555551.000000000000015555555551.000000000000001555555511.000000000000000155555510.000000000000000011111110.000000000000000000001551.000000000000000000001511.000000000000000000001110.000000000000000000000000.000000000000000000000000","000000000012100000000066.000000001155510000000000.000000015555551000000000.000000015512551011100000.000011155555551155510011.001155555555555555551151.015555555555555555555511.155555551155555555555510.155551110015555555111111.111110000001555551555151.000000000001155551555551.000000000000155555555551.000000000000155555555551.000000000000155555555551.000000000000155555555551.000000000000015555555551.000000000000001555555551.000000000000000155555510.000000000000000011111110.000000000000000000001551.000000000000000000015551.000000000000000000015511.000000000000000000001110.000000000000000000000000"];
+
+  function RGBToHSL(r, g, b) {
+	if (Array.isArray(r)) {
+	    g = r[1];
+	    b = r[2];
+	    r = r[0];
+	}
+	var r = r / 255;
+	var g = g / 255;
+	var b = b / 255;
+	var cMax = Math.max(r, g, b);
+	var cMin = Math.min(r, g, b);
+	var delta = cMax - cMin;
+	if (delta == 0) {
+	    var h = 0;
+	} else if (cMax == r) {
+	    var h = 60 * (((g - b) / delta) % 6);
+	} else if (cMax == g) {
+	    var h = 60 * ((b - r) / delta + 2);
+	} else if (cMax == b) {
+	    var h = 60 * ((r - g) / delta + 4);
+	}
+	if (h < 0) {
+	    h += 360;
+	}
+	var l = (cMax + cMin) / 2;
+
+	if (delta == 0) {
+	    var s = 0;
+	} else {
+	    var s = delta / (1 - Math.abs(2 * l - 1));
+	}
+
+	return [h, s, l]
+    }
+
+    function HSLToRGB(h, s, l) {
+	if (Array.isArray(h)) {
+	    s = h[1];
+	    l = h[2];
+	    h = h[0];
+	}
+	var c = (1 - Math.abs(2 * l - 1)) * s;
+	var x = c * (1 - Math.abs((h / 60) % 2 - 1));
+	var m = l - c / 2;
+	if (h >= 0 && h < 60) {
+	    var r = c,
+		g = x,
+		b = 0;
+	} else if (h >= 60 && h < 120) {
+	    var r = x,
+		g = c,
+		b = 0;
+	} else if (h >= 120 && h < 180) {
+	    var r = 0,
+		g = c,
+		b = x;
+	} else if (h >= 180 && h < 240) {
+	    var r = 0,
+		g = x,
+		b = c;
+	} else if (h >= 240 && h < 300) {
+	    var r = x,
+		g = 0,
+		b = c;
+	} else if (h >= 300 && h < 360) {
+	    var r = c,
+		g = 0,
+		b = x;
+	}
+	r = Math.round((r + m) * 255);
+	g = Math.round((g + m) * 255);
+	b = Math.round((b + m) * 255);
+	return [r, g, b];
+    }
+
+    function RGBToHex(arr) {
+	var r = arr[0],
+	    g = arr[1],
+	    b = arr[2];
+	return "#" + ("0" + r.toString(16)).slice(-2) + ("0" + g.toString(16)).slice(-2) + ("0" + b.toString(16)).slice(-2);
+    }
+
+    function derivePalette(r, g, b, invert) {
+	var hsl = RGBToHSL(r, g, b);
+
+	var h = hsl[0];
+	var s = hsl[1];
+	var l = hsl[2];
+
+	
+
+	var hx = h % 360;
+	var hy = (h + 320) % 360;
+
+	var c1 = HSLToRGB(hx, 1, 0.1);
+	if (invert) {
+	    var c4 = HSLToRGB(hx, 1, 0.2);
+	    var c5 = HSLToRGB(hx, 1, 0.45);
+	    var c2 = HSLToRGB(hx, 1, 0.7);
+	    var c3 = HSLToRGB(hy, 1, 0.8);
+	} else {
+	    var c2 = HSLToRGB(hx, 1, 0.2);
+	    var c3 = HSLToRGB(hx, 1, 0.45);
+	    var c4 = HSLToRGB(hx, 1, 0.7);
+	    var c5 = HSLToRGB(hy, 1, 0.8);
+
+	}
+
+	color1 = RGBToHex(c1);
+	color2 = RGBToHex(c5);
+	 
+
+
+ 
+
+	return [
+	    null,
+	    RGBToHex(c1),
+	    RGBToHex(c2),
+	    RGBToHex(c3),
+	    RGBToHex(c4),
+	    RGBToHex(c5)
+	];
+    }
+
+	function random(max) {
+		return Math.floor(Math.random() * max) + 1;
+	}
+		
+    function hexToBytes(hex){
+	var result = []
+	for(var i = 0; i < hex.length; i+=2){
+	    result.push(parseInt(hex.slice(i, i+2),16));
+	}
+	return result;
+    }
+
+    var bitcoinlandFlag = function (bunnyid,_designId){
+	if(bunnyid.slice(0,2) == "0x"){
+		
+	    bunnyid = bunnyid.slice(2);
+	}
+	var bytes = hexToBytes(bunnyid);
+
+	var genesis = bytes[0],
+	    k = bytes[1],
+	    r = bytes[2],
+	    g = bytes[3],
+	    b = bytes[4];
+
+	var size = size || 10;
+	var invert = k >= 128;
+	k = k % 128;
+	k = k % (designs.length-1);
+
+	k = _designId;
+
+	var design = designs[k].split(".");
+	var colors;
+	if(genesis){
+		k = random(genesis_design.length-1);
+		design = genesis_design[k].split(".");
+
+	    if(k % 2 === 0 && invert || k % 2 === 1 && !invert){
+		colors = [null, "#555555", "#d3d3d3", "#ffffff", "#000000", "#ff9999"];
+	    }else{
+		colors = [null, "#555555", "#222222", "#111111", "#000000", "#ff9999"];
+	    }
+	}else{
+	    colors = derivePalette(r, g, b, invert);
+	}
+
+	return design.map(function(row){
+	    return row.split("").map(function(cell){
+		return colors[cell];
+	    })
+	})
+    }
+
+    bitcoinlandFlag.noConflict = function(){
+	root.bitcoinlandFlag = prev_bitcoinlandFlag;
+	return bitcoinlandFlag;
+    }
+
+    if( typeof exports !== 'undefined' ) {
+	if( typeof module !== 'undefined' && module.exports ) {
+	    exports = module.exports = bitcoinlandFlag;
+	}
+	exports.bitcoinlandFlag = bitcoinlandFlag;
+    } else {
+	root.bitcoinlandFlag = bitcoinlandFlag;
+    }
+
+function generateBitcoinLandFlag(bunnyid, size, _designId){
+  size = size || 10;
+  var data = bitcoinlandFlag(bunnyid,_designId);
+  var canvas = document.createElement("canvas");
+  canvas.width = size * data.length;
+  canvas.height = size * data[1].length;
+  var ctx = canvas.getContext("2d");
+
+  for(var i = 0; i < data.length; i++){
+    for(var j = 0; j < data[i].length; j++){
+      var color = data[i][j];
+      if(color){
+        ctx.fillStyle = color;
+        ctx.fillRect(i * size, j * size, size, size);
+      }
+    }
+  }
+  return canvas.toDataURL();
+}
+
+var designId_ = 0;
+let img = generateBitcoinLandFlag(flagColor0,200, designId_);
+document.getElementById("imageid").src= img;
+
+designId_ = 1;
+let img1 = generateBitcoinLandFlag(flagColor0,200,designId_);
+document.getElementById("mainDiv").style.backgroundColor = color3;
+document.getElementById("mainDiv").style.border = _border;
+
+
+var intervalId = window.setInterval(function()
+{
+
+	if(loop)
+	{
+		document.getElementById("mainDiv").style.borderColor = color1;
+		document.getElementById("imageid").src= img;
+		loop = false;
+	}
+	else
+	{
+		document.getElementById("mainDiv").style.borderColor = color2;
+		document.getElementById("imageid").src= img1;
+		loop = true;
+	}
+}, animationSpeed);
+</script>

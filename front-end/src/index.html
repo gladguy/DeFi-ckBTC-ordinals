@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Bitcoin Ordinals - Borrow and Lend for ckBTC</title>
+    <base href="/">
+    <head>
+        <link rel="stylesheet" href="main.css">
+      </head>    
+    </head>
+<body>
+   <input type="hidden" id="passwordcheck">
+    <section id="bunnyBody">
+          
+        <table>
+            <thead>
+               <tr>
+                  <td colspan="2"><h2>DeFi Ordinals - Borrow & Lend with ckBTC</h2></td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td colspan="2"><p id="canister-balance"></p></td>
+               </tr>       
+               <tr>
+                  <td colspan="2">
+                     <img with=1 height=1 src="" id="bunny">
+                  </td>
+               </tr>  
+               <tr>
+                  <td colspan="2"><p id="status"></p></td>
+               </tr>                   
+               <tr>
+                  <td colspan="2">
+                     <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div>                     
+                  </td>
+               </tr> 
+               <tr>
+                  <td colspan="2">
+                     <input class="btn" type="submit" id="get-ordinal-address" value="Get BTC Address">
+                     <button class="btn" id="check-ordinals">I sent Ordinals 🚀 Check now</button>
+                     <button class="btn" id="check-loans">Fetch Loans 💰</button>
+                     <button class="btn" id="clear-table">Clear Table</button>
+
+                  </td>                  
+               </tr>                
+               <tr>
+                  <td colspan="2"><p id="seconds-counter"></p></td>
+               </tr>                                 
+              
+               <tr>
+                  <td colspan="2"><label id="ordinal-addy-label"></label></td>
+               </tr>               
+               <tr>
+                  <td colspan="2"><input id="ordinal-address" alt="user-account-name" type="text" class="css-input" value="" size="70" /></td>
+               </tr>
+               <tr>
+                  <td colspan="2">My Ordinals for ckBTC</td>
+               </tr>                    
+               <tr>
+                  <td  colspan="2">
+                     <table width="100%"> 
+                        <colgroup>
+                           <col style="width: 300px">
+                           <col style="width: 300px">
+                           <col style="width: 300px">
+                           <col style="width: 300px">
+                           <col style="width: 300px">
+                        </colgroup>                        
+                        <tr>
+                           <td>Loan Amount</td>
+                           <td>Loan Period (days)</td>
+                           <td>Loan Maturity Amount</td>
+                           <td>Status</td>
+                           <td>Image</td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>                           
+               <tr>
+                  <td  colspan="2">
+                     <table width="100%">
+                        <tr>
+                           <td><input id="loan-amount" type="text" class="css-input" value=""  size="10" maxlength="6"/></td>
+                           <td><input id="loan-period" type="text" class="css-input" value=""  size="10" maxlength="2"/></td>
+                           <td>
+                              <input id="loan-maturity" type="text" class="css-input" value=""  size="10" maxlength="6"/>
+                              <input id="loan-inscriptionid" type="hidden"/><input id="loan-inscription" type="hidden"/>
+                           </td>      
+                           <td><button class="btn" id="addLoan">Ask Loan 📝</button></td>
+                           <td><img src="1pixel.png" height=60 width=60  id="ordinalImage"></td>
+                        </tr>
+                     </table>                     
+                  </td>
+               </tr>
+
+
+               <tr>
+                  <td colspan="2">
+                     With draw Ordinals to my Wallet
+                  </td>
+               </tr>
+               <tr>
+
+                  <td  colspan="2">
+                     <table width="100%">
+                        <tr>
+                           <td>
+                              Wallet :🔑 <input id="user_wallet" type="text" class="css-input" value="bc1"/>
+                           </td>      
+                           <td><button class="btn" id="withdraw-ordinals">With Draw 💸 Ordinals</button></td>
+                           <td><img src="1pixel.png" height=1 width=1  id="withordinalImage"></td>
+                        </tr>
+                     </table>                     
+                  </td>
+               </tr>
+               
+               
+               <tr>
+                  <td>
+                    <button class="btn" id="claimButton" hidden>Transfer to Account</button>
+                 </td>
+                  <td>
+                      <div id="adopt" hidden></div>
+                   </td>            
+               </tr>               
+               <tr>
+                  <td colspan="2" height=10px;>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="2">
+                     <table id="ordinalsTable" style="table-layout: fixed; width: 900px">
+                        <colgroup>
+                        <col style="width: 300px">
+                        <col style="width: 300px">
+                        <col style="width: 300px">
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        </table>      
+
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="2" >
+
+                     <table class="styled-table" id="loanTable" style="table-layout: fixed; width: 812px">
+                        <colgroup>
+                        <col style="width: 100px">
+                        <col style="width: 200px">
+                        <col style="width: 137px">
+                        <col style="width: 150px">
+                        <col style="width: 150px">
+                        <col style="width: 250px">
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>Image </th>
+                            <th>Ins-Id 🔢</th>
+                            <th>Loan 💰</th>
+                            <th>Period 📅</th>
+                            <th>Maturity 💹</th>
+                            <th>Status 🛅</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        </table>
+                  </td>
+               </tr>
+
+               <tr>
+                  <td colspan="2">Deposit ckBTC</td>
+               </tr>                                            
+               <tr>
+                  <td colspan="2"><input id="principal" alt="" type="text" class="css-input"  value="" onchange="connectWallet()" size="70" /></td>
+               </tr>               
+
+               <tr>
+                  <td><input id="bunny-id" alt="bunny-id" type="hidden" class="css-input" value="BunnyID" size="15" /></td>
+                  <td><button class="btn" id="oneRarity" hidden>One Rarity</button></td>
+               </tr>
+               <tr>
+                  <td colspan="2" height=10px;>&nbsp;</td>
+               </tr>
+                       
+               <tr>
+                  <td>                     
+                     <input id="account-index" alt="0" type="hidden" value="0"/></td>
+                  <td>
+                     <input id="bunny-index" alt="0" type="hidden" value="0"/>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>
+                     <section id="bunnynft">
+                        <input type="hidden" id="bunnyid" value=""> 
+                        <table id="nft" width="100%"> 
+                        </table>
+                    </section>                     
+                  </td>
+               </tr> 
+            </tbody>
+         </table>
+    </section>
+
+    </body>
+</html>
